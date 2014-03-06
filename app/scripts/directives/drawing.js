@@ -5,23 +5,22 @@ angular.module('matrixApp')
     return {
       restrict: 'A',
       link: function(scope, element){
-        scope.addColor = function() {
-          scope.elcolor = scope.color;
-          console.log(scope.elcolor);
-        };
-        coordenadasService.on('child_added',function(data){        
+
+        coordenadasService.on('child_added',function(data){
           $timeout(function(){
             drawPixel(data);
           },0);
         });
-        coordenadasService.on('child_changed',function(data){        
+        coordenadasService.on('child_changed',function(data){
           $timeout(function(){
             drawPixel(data);
+            drawBoard();
           },0);
         });
-        coordenadasService.on('child_removed',function(data){        
+        coordenadasService.on('child_removed',function(data){
           $timeout(function(){
             clearPixel(data);
+            drawBoard();
           },0);
         });
         var ctx = element[0].getContext('2d');
@@ -29,9 +28,7 @@ angular.module('matrixApp')
         // variable that decides if something should be drawn on mousemove
         var drawing = false;
         // the last coordinates before the current move
-        var lastX;
-        var lastY;
-        var pixSize = 20, lastPoint = null, currentColor = 'fff', mouseDown = 0;
+        var pixSize = 20, lastPoint = null, mouseDown = 0;
 
         var bw = 640;
         var bh = 320;
@@ -54,7 +51,7 @@ angular.module('matrixApp')
 
         drawBoard();
 
-        element.bind('mousedown', function(event){
+        element.bind('mousedown', function(){
           ctx.beginPath();
           drawing = true;
         });
@@ -88,6 +85,8 @@ angular.module('matrixApp')
             lastPoint = [x1, y1];
           }
         });
+        
+    
 
         element.bind('mouseup', function(){
           // stop drawing
@@ -112,12 +111,12 @@ angular.module('matrixApp')
           return { left: _x, top:_y };
         }
         var drawPixel = function(snapshot) {
-          var coords = snapshot.name().split(":");
-          ctx.fillStyle = snapshot.val();
+          var coords = snapshot.name().split(':');
+          ctx.fillStyle = '#'+snapshot.val();
           ctx.fillRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
         };
         var clearPixel = function(snapshot) {
-          var coords = snapshot.name().split(":");
+          var coords = snapshot.name().split(':');
           ctx.clearRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
         };
       }
