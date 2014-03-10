@@ -13,8 +13,15 @@ angular.module('matrixApp')
     $scope.guardarDibujo = function(){
       coordenadasService.copyFbRecord($scope.nombreDibujo);
     };
-    
-    coordenadasService.pillarPresets();      
+    $scope.movida = coordenadasService.pillarPresets();
+    $scope.movida.then(function(snap){
+      snap.forEach(function(data){
+        $scope.listaNombres.push(data.name());
+      });
+    });
+    $scope.seleccionPreset = function(){
+      coordenadasService.sustituirPreset($scope.preset);
+    }
     $scope.botonColor = function(color) {
       $scope.elcolor = color;
     };

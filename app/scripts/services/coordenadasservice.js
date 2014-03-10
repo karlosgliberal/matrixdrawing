@@ -2,7 +2,8 @@
 'use strict';
 
 angular.module('matrixappCoordenas', [])
-  .factory('coordenadasService', function () {
+  .factory('coordenadasService', function ($q, $rootScope) {
+    var deferred = $q.defer();
     var firebase = {};
     firebase = new Firebase('https://d3interzonas.firebaseio.com/default');
     var presets = {};
@@ -27,12 +28,20 @@ angular.module('matrixappCoordenas', [])
           hijoPreset.set(snap.val());
         });
       },
+      sustituirPreset: function(nombre){
+        firebase.remove();
+        var hijoPreset = presets.child(nombre);
+        hijoPreset.once('value', function(snap) {
+          firebase.set(snap.val());
+        });
+      },
       pillarPresets: function(){
         presets.once('value', function(todosSnap) {
-          todosSnap.forEach(function(data){
-            return data;
+          $rootScope.$apply(function(){
+            deferred.resolve(todosSnap);
           })
         });
+        return deferred.promise;
       }
     };
   });
