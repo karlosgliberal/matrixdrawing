@@ -7,7 +7,13 @@
   <h3 class="text-muted">Matrix Drawing</h3>
 </div>
 
-
+ <form ng-submit="guardarDibujo()">
+    <input type="text" ng-model="nombreDibujo"  size="30" placeholder="Nombre presets">
+    <input class="btn-primary" type="submit" value="guardar">
+    <select ng-model="filterCondition.operator">
+      <option ng-repeat="operator in operators" value="{{operator.value}}">{{operator.displayName}}</option>
+    </select>
+</form>
 <canvas id="canvas" width="642" height="322" drawing></canvas>
 <div>
     

@@ -14,13 +14,11 @@ angular.module('matrixApp')
         coordenadasService.on('child_changed',function(data){
           $timeout(function(){
             drawPixel(data);
-            drawBoard();
           },0);
         });
         coordenadasService.on('child_removed',function(data){
           $timeout(function(){
             clearPixel(data);
-            drawBoard();
           },0);
         });
         var ctx = element[0].getContext('2d');
@@ -50,13 +48,13 @@ angular.module('matrixApp')
         }
 
         drawBoard();
-
         element.bind('mousedown', function(){
           ctx.beginPath();
           drawing = true;
         });
 
         element.bind('mousemove', function(event){
+          drawBoard();
           var canvas = angular.element('#canvas');
           var offset = offsetAngular(canvas);
           if(drawing){
