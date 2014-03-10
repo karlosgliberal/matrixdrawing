@@ -1,26 +1,45 @@
 <div class="header">
-  <ul class="nav nav-pills pull-right">
+<!--   <ul class="nav nav-pills pull-right">
     <li class="active"><a ng-href="#">Pizarra</a></li>
-    <li><a ng-href="#/snake">Snake</a></li>
+    <li><a ng-href="#/snake">Snake3</a></li>
     <li><a ng-href="#">Leapmotion</a></li>
-  </ul>
-  <h3 class="text-muted">Matrix Drawing</h3>
-</div>
+  </ul> -->
+<!--   <h3 class="text-muted">Matrix Ddra00wxdddin</h3> -->
 
- <form ng-submit="guardarDibujo()">
+<div class="btn-group">
+  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-cog"></span>
+  </button>
+  <ul class="dropdown-menu configuracion">
+    <li>
+      Guardar dibujo
+     <form ng-submit="guardarDibujo()">
     <input type="text" ng-model="nombreDibujo"  size="30" placeholder="Nombre presets">
     <input class="btn-primary" type="submit" value="guardar">
+    </form>
+   </li>
+   <li>
+    Cargar
     <select ng-model="filterCondition.operator">
       <option ng-repeat="operator in operators" value="{{operator.value}}">{{operator.displayName}}</option>
     </select>
-</form>
+  </li>
+
+  </ul>
+</div>
+
+</div>
+
+
 <canvas id="canvas" width="642" height="322" drawing></canvas>
 <div>
     
   <div class="btn-toolbar" role="toolbar" style="margin: 0;">
       <div class="btn-group">
-        <button ng-repeat="color in colors" type="button" class="btn btn-default" ng-click="botonColor(color)" style="background-color:{{'#'+color}}"><i class="glyphicon glyphicon-pencil"></i></button>
-        <button type="button" class="btn btn-default" ng-click="borrar()"><i class="glyphicon glyphicon-trash"></i></button>
+        <button ng-repeat="color in colors" type="button" class="btn btn-default btn-matrix" ng-click="botonColor(color)" style="background-color:{{'#'+color}}"></button>
+        <button type="button" class="btn btn-borrar" ng-click="borrar()">
+          <i class="glyphicon glyphicon-trash"></i>
+        </button>
       </div>
     </div>
 </div>
