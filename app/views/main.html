@@ -1,41 +1,43 @@
+
+<!-- Modal -->
+<div class="modal fade" id="configuracion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+          <label>Guardar dibujo</label>
+                 <div class="input-group">
+                      <input type="text" class="form-control" ng-model="nombreDibujo">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="guardarDibujo()">Guardar</button>
+                      </span>
+                  </div><!-- /input-group -->
+          </div>
+          <div class="col-md-6">
+          <label>Cargar dibujo</label>
+                <select class="form-control" ng-model="filterCondition.operator">
+                <option ng-repeat="operator in operators" value="{{operator.value}}">{{operator.displayName}}</option>
+                </select>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="header">
-<!--   <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Pizarra</a></li>
-    <li><a ng-href="#/snake">Snake3</a></li>
-    <li><a ng-href="#">Leapmotion</a></li>
-  </ul> -->
-<!--   <h3 class="text-muted">Matrix Ddra00wxdddin</h3> -->
-
-<div class="btn-group">
-  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-cog"></span>
-  </button>
-  <ul class="dropdown-menu configuracion">
-    <li>
-      Guardar dibujo
-     <form ng-submit="guardarDibujo()">
-    <input type="text" ng-model="nombreDibujo"  size="30" placeholder="Nombre presets">
-    <input class="btn-primary" type="submit" value="guardar">
-    </form>
-   </li>
-   <li>
-    Cargar
-    <select ng-model="filterCondition.operator">
-      <option ng-repeat="operator in operators" value="{{operator.value}}">{{operator.displayName}}</option>
-    </select>
-  </li>
-
-  </ul>
-</div>
-
-</div>
-
-
 <canvas id="canvas" width="642" height="322" drawing></canvas>
 <div>
     
   <div class="btn-toolbar" role="toolbar" style="margin: 0;">
       <div class="btn-group">
+        <button class="btn btn-borrar" type="button" data-toggle="modal" data-target="#configuracion">
+         <span class="glyphicon glyphicon-cog"></span>
+        </button>
         <button ng-repeat="color in colors" type="button" class="btn btn-default btn-matrix" ng-click="botonColor(color)" style="background-color:{{'#'+color}}"></button>
         <button type="button" class="btn btn-borrar" ng-click="borrar()">
           <i class="glyphicon glyphicon-trash"></i>
