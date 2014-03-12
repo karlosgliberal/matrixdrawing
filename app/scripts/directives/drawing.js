@@ -118,5 +118,5 @@ angular.module('matrixApp')
           ctx.clearRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
         };
       }
-    };
+    }; //fin return
   });
