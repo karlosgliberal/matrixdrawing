@@ -108,11 +108,13 @@ angular.module('matrixApp')
           _y = rawDom.getBoundingClientRect().top + scrollY;
           return { left: _x, top:_y };
         }
+
         var drawPixel = function(snapshot) {
           var coords = snapshot.name().split(':');
           ctx.fillStyle = '#'+snapshot.val();
           ctx.fillRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
         };
+        
         var clearPixel = function(snapshot) {
           var coords = snapshot.name().split(':');
           ctx.clearRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
