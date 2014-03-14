@@ -1,3 +1,9 @@
+body {
+  background-color: #eee; 
+
+}
+
+
 .btn-matrix {
   width: 40px;
   height: 40px;
@@ -8,7 +14,6 @@
 }
 
 .btn-borrar {
-    background-color: #fff;
     color: #333333;
     font-size: 24px;
 }
@@ -19,5 +24,61 @@
 
 .btn-toolbar button:hover {
   opacity: 0.7;
+}
+
+
+.center {
+  text-align: center;
+}
+
+.inner {
+  padding: 5px;
+}
+
+.pintar {
+  padding: 30px 0;
+}
+
+.footer-pixel {
+background-color: #C9C9C9;
+position: absolute;
+bottom: 0;
+width: 100%;
+border-top: 1px solid #ccc;
+ padding: 10px;
+}
+
+
+
+.footer-texto {
+   color: #777;
+   padding: 0 10px;
+   position: relative;
+   top: 15px;
+}
+
+
+h1 {
+  font-family: 'Duru Sans', sans-serif;
+  color: #999999;
+  font-size: 38px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  margin-top: 38px;
 
 }
+
+.center1 {
+  margin: 0 auto;
+}
+
+.container-pixel {
+  margin-top: 20px;
+}
+a:hover {
+  opacity: 0.7;
+}
+
+
+
+
