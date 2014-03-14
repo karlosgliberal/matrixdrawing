@@ -1,5 +1,6 @@
-Sistama para el control de la pantalla de matrix de led
-=======================================================
+Sistama para el control de matrix de led
+----------------------------------------
 
-todo
+TODO
 ----
+"todo"
