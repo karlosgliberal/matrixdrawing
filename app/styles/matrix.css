@@ -39,25 +39,33 @@ body {
 .pintar {
   padding: 30px 0;
 }
-
-.footer-pixel {
-background-color: #C9C9C9;
-position: absolute;
-bottom: 0;
-width: 100%;
-border-top: 1px solid #ccc;
- padding: 10px;
+.footer-pixel{
+  margin-top: 150px;
 }
 
+/*.footer-pixel {
+  background-color: #C9C9C9;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+}
+*/
+.container-canvas {
+    /* This could be done in one single declaration. See the extended sample. */
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+}
 
-
-.footer-texto {
+/*.footer-texto {
    color: #777;
    padding: 0 10px;
    position: relative;
    top: 15px;
 }
-
+*/
 
 h1 {
   font-family: 'Duru Sans', sans-serif;
