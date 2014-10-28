@@ -1,5 +1,5 @@
 body {
-  background-color: #eee; 
+  background-color: #eee;
 
 }
 
@@ -82,7 +82,7 @@ h1 {
 }
 
 .container-pixel {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 a:hover {
   opacity: 0.7;
