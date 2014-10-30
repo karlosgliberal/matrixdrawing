@@ -22,23 +22,24 @@ angular.module('matrixApp')
           },0);
         });
         var ctx = element[0].getContext('2d');
-      
+
         // variable that decides if something should be drawn on mousemove
         var drawing = false;
         // the last coordinates before the current move
-        var pixSize = 20, lastPoint = null, mouseDown = 0;
+        var pixSize = 5, lastPoint = null, mouseDown = 0;
 
-        var bw = 640;
-        var bh = 320;
+
+        var bw = 268;
+        var bh = 63;
         //$parsedding around grid
         var p = 0;
         function drawBoard(){
-          for (var xx1 = 0; xx1 <= bw; xx1 += 20) {
+          for (var xx1 = 0; xx1 <= bw; xx1 += 5) {
             ctx.moveTo(0.5 + xx1 + p, p);
             ctx.lineTo(0.5 + xx1 + p, bh + p);
           }
 
-          for (var x = 0; x <= bh; x += 20) {
+          for (var x = 0; x <= bh; x += 5) {
             ctx.moveTo(p, 0.5 + x + p);
             ctx.lineTo(bw + p, 0.5 + x + p);
           }
@@ -83,15 +84,15 @@ angular.module('matrixApp')
             lastPoint = [x1, y1];
           }
         });
-        
-    
+
+
 
         element.bind('mouseup', function(){
           // stop drawing
           lastPoint = null;
           drawing = false;
         });
-        
+
         // canvas reset
         // function reset(){
         //   element[0].width = element[0].width;
@@ -114,7 +115,7 @@ angular.module('matrixApp')
           ctx.fillStyle = '#'+snapshot.val();
           ctx.fillRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
         };
-        
+
         var clearPixel = function(snapshot) {
           var coords = snapshot.name().split(':');
           ctx.clearRect(parseInt(coords[0]) * pixSize, parseInt(coords[1]) * pixSize, pixSize, pixSize);
