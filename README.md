@@ -6,6 +6,8 @@ Desarrollo en angular y firebase para gestionar una pizarra colaborativa, y que 
 
 En este [artículo](http://labs.interzonas.info/articles/contruye_tu_pizarra_de_leds_colaborativa/) explicamos como hemos montado la pantalla de led y como es gestionamos con esta app desarrollada en angularjs
 
+![https://github.com/karlosgliberal/matrixdrawing/blob/master/pizarra_colaborativa.gif]
+
 Lista de directorios
 * app: Donde se situa al app en angular
 * deameon: Demonio en nodejs que usamos para que escuche firebase y envie la info a los leds.
