@@ -44,6 +44,7 @@ void loop() {
   String strg;
   String strb;
  
+ //Solucion dirty, dirty para separar lo que llega del puerto serie, esta mejorado en una futura version 
   if(Serial.available() > 0)
     {
         strx = Serial.readStringUntil('\n');
@@ -59,16 +60,6 @@ void loop() {
         matrix.drawPixel(x, y, matrix.Color333(r, g, b));
     }
 
-    /*
-    //matrix.fillCircle(23-ledState, 7, 7, matrix.Color333(7, ledState*2, 7));
-    matrix.drawPixel(0, 0, matrix.Color333(7, 0, 0)); 
-    matrix.drawPixel(2, 16, matrix.Color333(7, 0, 0)); 
-    matrix.drawPixel(7, 2, matrix.Color333(7, 0, 0));
-    matrix.drawPixel(31, 15, matrix.Color333(7, 7, 0));
-      matrix.setTextColor(matrix.Color333(7-i,7+i,0));
-       matrix.print('*');
-      */ 
-  // do nothing
 }
 
 
