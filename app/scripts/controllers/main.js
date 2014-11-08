@@ -32,4 +32,25 @@ angular.module('matrixApp')
     $scope.botonColor = function(color) {
       $scope.elcolor = color;
     };
+
+    $scope.$watch("colorpicker", function(newValue, oldValue) {
+      if(typeof newValue == "undefined")
+        return;
+      if (newValue.charAt(0) == '#') {
+        $scope.elcolor = newValue.substr(1);
+      }
+    });
+
+    $scope.$watch("elcolor", function(newValue, oldValue) {
+      if(typeof newValue == "undefined")
+        return;
+      if (newValue.charAt(0) != '#') {
+        newValue = '#' + newValue;
+      }
+      $scope.colorpicker = newValue;
+    });
+
+
+
+
   });

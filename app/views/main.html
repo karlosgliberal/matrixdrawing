@@ -39,9 +39,12 @@
          <span class="glyphicon glyphicon-cog"></span>
         </button>
         <button ng-repeat="color in colors" type="button" class="btn btn-default btn-matrix" ng-click="botonColor(color)" style="background-color:{{'#'+color}}"></button>
+  <spectrum-colorpicker ng-model="colorpicker" format="hex3"
+                                  options="{showInput: true, showButtons:false, preferredFormat: 'hex', localStorageKey: true, showPalette: true}"></spectrum-colorpicker>
         <button type="button" class="btn btn-borrar" ng-click="borrar()">
           <i class="glyphicon glyphicon-trash"></i>
         </button>
+
       </div>
     </div>
   </div>

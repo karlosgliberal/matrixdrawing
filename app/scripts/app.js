@@ -5,7 +5,7 @@ angular.module('matrixApp', [
   'ngResource',
   'ngSanitize',
   'matrixappCoordenas',
-  'colorpicker.module',
+  'angularSpectrumColorpicker',
   'ngRoute'
 ])
   .config(function ($routeProvider) {
